@@ -1,0 +1,76 @@
+/* Container styling */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height for vertical centering */
+  }
+  
+  /* Form styling */
+  .email-form {
+    background-color: rgba(249, 249, 249, 0.72); /* 28% transparency */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Increased form width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Label styling */
+  .email-form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+    width: 100%;
+  }
+  
+  /* Input styling */
+  .email-input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .email-input:focus {
+    border-color: #007bff;
+  }
+  
+  /* Button styling */
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Cancel link styling */
+  .cancel-link {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .cancel-link:hover {
+    color: #0056b3;
+  }
+  
