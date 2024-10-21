@@ -1,11 +1,12 @@
 import mysql from 'mysql';
 
 export function database(){
-    const db=mysql.createConnection({
-        host:"localhost",
-        user:"root",
-        password:"2580",
-        database:"authentication"
+    const db=mysql.createPool({
+        host:process.env.MYSQLHOST,
+        user:process.env.MYSQLUSER,
+        password:process.env.MYSQLPASSWORD,
+        database:process.env.MYSQLDATABASE,
+        port:process.env.MYSQLPORT
     })
     return db
 }
