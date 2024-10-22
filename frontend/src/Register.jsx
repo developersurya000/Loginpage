@@ -12,6 +12,7 @@ export const Register = () => {
     password: ''
   })
   // console.log(values)
+  const requesturl='https://paypass.onrender.com';
   const navigate=useNavigate()
   const handlesubmit= async (e)=>{
     e.preventDefault();
@@ -19,7 +20,7 @@ export const Register = () => {
       alert("password should have minimum 8 characters")
     }else{
       try{
-        const res=await axios.post(`${process.env.REACT_APP_BACKEND_URL}/register`,values)
+        const res=await axios.post(`${requesturl}/register`,values)
         if(res.data.status==="Email already exists!"){
           alert(res.data.status)
         }else{

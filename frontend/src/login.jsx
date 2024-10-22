@@ -11,12 +11,13 @@ export const Login = () => {
         email:'',
         password:''
     })
+    const requesturl='https://paypass.onrender.com';
     const navigate=useNavigate()
     axios.defaults.withCredentials=true;
     const handlesubmit= async (e)=>{
         e.preventDefault();
         try{
-            const res=await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`,values)
+            const res=await axios.post(`${requesturl}/login`,values)
             if(res.data.status==="login success!"){
                 navigate('/')
             }else{

@@ -12,6 +12,7 @@ export function Edit() {
         password: '',
         id: ''
     })
+    const requesturl='https://paypass.onrender.com';
     const [checkpass,setcheckpass]=useState('')
     const navigate=useNavigate()
     const [emailreceived, setemailreceived] = useState('')
@@ -19,7 +20,7 @@ export function Edit() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/checkemail`, emaildata)
+            const res = await axios.post(`${requesturl}/checkemail`, emaildata)
             if (res.data.status === "success!") {
                 setemailreceived(emaildata.email)
                 setnextpage(true)
@@ -40,7 +41,7 @@ export function Edit() {
         }else{
             if(checkpass===updatedvalues.password){
                 try {
-                    const res=await axios.put(`${process.env.REACT_APP_BACKEND_URL}/resetpass`, updatedvalues)
+                    const res=await axios.put(`${requesturl}/resetpass`, updatedvalues)
                     if(res.data.status==="password reset success!"){
                         navigate('/login')
                         alert(res.data.status)

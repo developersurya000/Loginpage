@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 export function Home() {
+    const requesturl='https://paypass.onrender.com';
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const navigate = useNavigate();
     const [user, setuser] = useState(false)
@@ -18,7 +19,7 @@ export function Home() {
     };
     axios.defaults.withCredentials=true;
     useEffect(()=>{
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/checktoken`)
+        axios.get(`${requesturl}/checktoken`)
                 .then(res=>{
                     if(res.data.status==='success'){
                         setuser(true)
@@ -34,7 +35,7 @@ export function Home() {
 
     const handlelogout=async ()=>{
         try{
-       const res=await axios.get(`${process.env.REACT_APP_BACKEND_URL}/logout`)
+       const res=await axios.get(`${requesturl}/logout`)
        if(res.data.status==='success'){
         window.location.reload()
        }else{
