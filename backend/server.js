@@ -8,11 +8,19 @@ import cors from 'cors'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 dotenv.config()
+const allowedOrigins = ['https://your-frontend-domain.netlify.app'];
 app.use(cors({
-    origin: ["https://payzap.netlify.app"],
-    methods: ["POST", "GET"],
-    credentials: true
-}));
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true, // Allow sending cookies
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+  }));
 app.use(express.json());
 app.listen(3030, () => {
     console.log("server started");
