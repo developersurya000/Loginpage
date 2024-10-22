@@ -8,7 +8,7 @@ import cors from 'cors'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 dotenv.config()
-const allowedOrigins = ['https://your-frontend-domain.netlify.app'];
+const allowedOrigins = ['https://payzap.netlify.app'];
 app.use(cors({
     origin: function (origin, callback) {
       if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
