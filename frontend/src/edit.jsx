@@ -19,7 +19,7 @@ export function Edit() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3030/checkemail', emaildata)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/checkemail`, emaildata)
             if (res.data.status === "success!") {
                 setemailreceived(emaildata.email)
                 setnextpage(true)
@@ -40,7 +40,7 @@ export function Edit() {
         }else{
             if(checkpass===updatedvalues.password){
                 try {
-                    const res=await axios.put('http://localhost:3030/resetpass', updatedvalues)
+                    const res=await axios.put(`${process.env.REACT_APP_BACKEND_URL}/resetpass`, updatedvalues)
                     if(res.data.status==="password reset success!"){
                         navigate('/login')
                         alert(res.data.status)

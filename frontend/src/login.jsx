@@ -16,7 +16,7 @@ export const Login = () => {
     const handlesubmit= async (e)=>{
         e.preventDefault();
         try{
-            const res=await axios.post('http://localhost:3030/login',values)
+            const res=await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`,values)
             if(res.data.status==="login success!"){
                 navigate('/')
             }else{
@@ -27,10 +27,6 @@ export const Login = () => {
         }
     }
 
-    const handleedit=(e)=>{
-        e.preventDefault();
-        //...............
-    }
 
     return (
         <div className="professional-container">

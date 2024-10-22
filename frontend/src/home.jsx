@@ -18,7 +18,7 @@ export function Home() {
     };
     axios.defaults.withCredentials=true;
     useEffect(()=>{
-        axios.get('http://localhost:3030/checktoken')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/checktoken`)
                 .then(res=>{
                     if(res.data.status==='success'){
                         setuser(true)
@@ -34,7 +34,7 @@ export function Home() {
 
     const handlelogout=async ()=>{
         try{
-       const res=await axios.get('http://localhost:3030/logout')
+       const res=await axios.get(`${process.env.REACT_APP_BACKEND_URL}/logout`)
        if(res.data.status==='success'){
         window.location.reload()
        }else{
