@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 dotenv.config()
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://payzap.netlify.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
